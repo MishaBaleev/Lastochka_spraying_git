@@ -1,0 +1,106 @@
+@import "../../mixin.scss";
+
+.wheather{
+    li{ 
+        padding: 20px 10px;
+        list-style-type: none;
+        width: calc(90% - 20px);
+        border: 2px dashed whitesmoke;
+        border-radius: 6px;
+        @include flexContainerCenterWrap();
+        justify-content: space-between;
+        .wheather_title{
+            width: 45%;
+            @include flexContainerCenterWrap();
+            justify-content: left;
+            p{
+                @include text(18, 8);
+                text-align: left;
+                margin: 0;
+            }
+        }
+        &.big{
+            .wheather_title{
+                width: 50%;
+            }
+        }
+        input[type=range]{
+            width: 30%;
+            background-color: transparent;
+            -webkit-appearance: none;
+            &:hover{
+                cursor: pointer;
+            }
+            &::-webkit-slider-runnable-track{
+                -webkit-appearance: none;
+                height: 10px;
+                border-radius: 5px;
+                background-color: gray;
+            }
+            &::-webkit-slider-thumb{
+                -webkit-appearance: none;
+                background-color: whitesmoke;
+                width: 10px;
+                height: 20px;
+                border-radius: 5px;
+                margin-top: -5px;
+            }
+        }
+        input[type=number]{
+            width: 15%;
+            border-radius: 6px;
+            border: none;
+            padding: 0 5px;
+            height: 30px;
+            @include text(18, 10);
+            color: #1E1E1E;
+            text-align: center;
+            &:focus{outline: none;}
+            &::-webkit-inner-spin-button{opacity: 1;}
+        }
+        input[type=checkbox]{
+            width: 30px;
+            height: 30px;
+            margin: 0;
+            border-radius: 6px;
+            accent-color: #4CAF50;
+            &:hover{cursor: pointer;}
+        }
+        select{
+            width: 50%;
+            height: 30px;
+            @include text(20, 10);
+            text-align: center;
+            color: #1E1E1E;
+            border: none;
+            border-radius: 6px;
+            &:focus{outline: none}
+        }
+        &.conditions{
+            .wheather_title{width: 30%;}
+            .result{
+                width: calc(70% - 20px);
+                background-color: transparent;
+                border-radius: 5px;
+                padding: 15px 10px;
+                border: 2px dashed whitesmoke;
+                box-sizing: border-box;
+                @include flexContainerCenterWrap();
+                &.good{
+                    p{color: #4CAF50;}
+                }
+                &.middle{
+                    p{color: orange;}
+                }
+                &.bad{
+                    p{color: red;}
+                }
+                p{
+                    text-align: center;
+                    margin: 0;
+                    @include bText(20, 8);
+                }
+            }
+        }
+    }
+}

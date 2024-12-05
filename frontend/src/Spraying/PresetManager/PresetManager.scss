@@ -1,0 +1,158 @@
+@import "../mixin.scss";
+
+.preset_manager{
+    position: absolute;
+    display: flex;
+    top: calc(25% + 30px);
+    left: calc(37.5% - 25%);
+    width: 50vw;
+    height: 50vh;
+    background-color: rgba(30, 30, 30, 0.7333333333);
+    border-radius: 0 6px 6px 6px;
+    .close{
+        position: absolute;
+        right: -17.5px;
+        top: -17.5px;
+        margin: 0;
+        width: 35px;
+        height: 35px;
+        background-color: red;
+        border-radius: 6px;
+        border: 2px solid whitesmoke;
+        @include flexContainerCenterWrap();
+        padding: 0;
+        &::after, &::before{
+            position: absolute;
+            content: "";
+            width: 3px;
+            height: 25px;
+            background-color: whitesmoke;
+            border-radius: 1.5px;
+        }
+        &::after{rotate: 45deg;}
+        &::before{rotate: -45deg;}
+    }
+    .title{
+        position: absolute;
+        top: -45px;
+        background-color: rgba(30, 30, 30, 0.7333333333);
+        height: 45px;
+        padding: 0 15px;
+        border-radius: 6px 6px 0 0;
+        @include flexContainerCenterWrap();
+        p{
+            @include bText(30, 10);
+            margin: 0;
+        }
+    }
+    .preset_nav{
+        width: 40%;
+        height: calc(100% - 20px);
+        padding: 10px 0;
+        overflow-y: scroll;
+        margin: 0;
+        background-color: #1E1E1E;
+        border-radius: 0 0 0 6px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &::-webkit-scrollbar{
+            background-color: transparent;
+            width: 3px;
+        }
+        &::-webkit-scrollbar-thumb{
+            background-color: grey;
+            width: 3px;
+            border-radius: 1.5px;
+        }
+        li{
+            position: relative;
+            width: calc(90% - 10px);
+            list-style-type: none;
+            border: 2px dashed whitesmoke;
+            border-radius: 6px;
+            padding: 10px 5px;
+            box-sizing: border-box;
+            &:hover{cursor: pointer;}
+            p{
+                margin: 0;
+                @include text(25, 10)
+            }
+            &:not(:first-child){margin-top: 20px;}
+            &.active{
+                border-color: #4CAF50;
+            }
+            &.add{
+                border: none;
+                background-color: grey;
+                transition-duration: .4s;
+                &:hover{
+                    background-color: rgb(75, 75, 75);
+                }
+            }
+        }
+    }
+    .preset_descr{
+        width: calc(60%);
+        height: calc(100% - 20px);
+        padding: 10px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        .preset_item{
+            width: 100%;
+            @include flexContainerCenterWrap();
+            justify-content: left;
+            p{
+                margin: 0;
+                @include text(25, 10)
+            }
+            .field{
+                margin: 0 20px 0 20px;
+                border-bottom: 2px solid whitesmoke;
+            }
+            input[type=number]{
+                @include text(25, 10);
+                color: #1E1E1E;
+                padding: 0;
+                margin: 0 20px 0 20px;
+                border: none;
+                text-align: center;
+                border-radius: 3px;
+                &::-webkit-inner-spin-button{opacity: 1;}
+                &:focus{outline: none;}
+            }
+            input[type=text]{
+                @include text(25, 10);
+                color: #1E1E1E;
+                padding: 0;
+                margin: 0 20px 0 20px;
+                border: none;
+                text-align: center;
+                border-radius: 3px;
+                &:focus{outline: none;}
+            }
+            select{
+                @include text(25, 10);
+                color: #1E1E1E;
+                margin: 0 20px 0 20px;
+                border: none;
+                text-align: center;
+                border-radius: 3px;
+                &:focus{outline: none;}
+            }
+        }
+        .save_preset{
+            height: 35px;
+            @include text(25, 10);
+            background-color: grey;
+            border: none;
+            border-radius: 6px;
+            margin: 0;
+            transition-duration: .4s;
+            &:hover{
+                background-color: rgb(75, 75, 75);
+            }
+        }
+    }
+}
